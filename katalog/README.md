@@ -8,7 +8,7 @@
 
 ### 1. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara 'urls.py', 'views.py', 'models.py', dan berkas 'html';
 
-![diagram bagan request client](https://export-download.canva.com/0dbc57d6-04a7-49e5-91dd-603378d345b5/0/0001-35375068953.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJHKNGJLC2J7OGJ6Q%2F20220914%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220914T051649Z&X-Amz-Expires=79116&X-Amz-Signature=a379e3123f076b773b61aebfec70cfe56c48e9baabad3f996399a5d61ec7b27a&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%2A%3DUTF-8%27%27User.png&response-expires=Thu%2C%2015%20Sep%202022%2003%3A15%3A25%20GMT, https://www.canva.com/)
+![diagram bagan request client](https://www.canva.com/design/DAFMQ6q5IBE/TxRymZveWKNpvWqfq1fNrw/edit?utm_content=DAFMQ6q5IBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
 
 #### Untuk membuat sebuah request, langkah awal yang dilakukan adalah *user* akan membuat request ke *Django server*, setelah *middleware classes* memproses request yang dibuat, request akan diteruskan ke URL Router di 'urls.py'. 
 #### Ketika sudah mendapatkan *matching URL* berdasarkan request, *view function* atau fungsi yang sesuai di 'views.py' yang bersesuaian akan dipanggil, dan jika fungsi ini sudah dieksekusi, waktunya untuk merespon request yang diberikan.
