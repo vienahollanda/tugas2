@@ -11,6 +11,7 @@
 ![User](https://user-images.githubusercontent.com/112618738/190313748-a0ba9c05-ed78-4c65-9091-f92463994b4e.png)
 
 
+
 #### Untuk membuat sebuah request, langkah awal yang dilakukan adalah *user* akan membuat request ke *Django server*, setelah *middleware classes* memproses request yang dibuat, request akan diteruskan ke URL Router di `urls.py`. Ketika sudah mendapatkan *matching URL* berdasarkan request, *view function* atau fungsi yang sesuai di `views.py` yang bersesuaian akan dipanggil, dan jika fungsi ini sudah dieksekusi, waktunya untuk merespon request yang diberikan. Ketika responsnya adalah render, ia akan mencari HTML. Responsnya berisi HTML dan file statis lainnya yang akan diberikan ke *user*
 
 
@@ -28,6 +29,7 @@
 
 ### - Memetakan data yang didapatkan ke dalam HTML dengan sintaks dari Django untuk pemetaan data template.
 #### Di bagian ketiga ini saya memodifikasi `Fill me!` dengan `{{nama}}` dan `{{NPM}}` yang berada di `katalog.html`. Lalu saya memasukkan beberapa data dari tabel yang berada di `models`. Dan data berhasil untuk dipetakan pada berkas `html`.
+
 
 
 ### - Melakukan *deployment* ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
