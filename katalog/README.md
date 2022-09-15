@@ -34,9 +34,8 @@
 #### Lalu saya memasukkan beberapa data dari tabel yang berada di 'models'. Dan data berhasil untuk dipetakan pada berkas 'html'.
 
 ### - Melakukan *deployment* ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
-#### Untuk melakukan ini, saya mengunggah file proyek Django yang telah diubah berdasarkan request yang diberikan ke *repository* yang telah saya buat sebelumya di Github dengan melakukan perintah 'add', 'commit', dan 'push'. 
-#### Lalu di Heroku, saya membuat aplikasi baru dengan nama 'tugas2viena' dan menambahkan 'HEROKU_APP_NAME' yang isinya nama dari aplikasi yang saya buat di Heroku dan 'HEROKU_API_KEY' yang isinya API key dari akun saya pada 'secrets'.
-#### Setelah melakukan langkah-langkah di atas, saya melakukan *deploy* kembali dengan menekan 're-run all jobs' pada *repository* yang sesuai di Github.
+##### Untuk melakukan ini, saya mengunggah file proyek Django yang telah diubah berdasarkan request yang diberikan ke *repository* yang telah saya buat sebelumya di Github dengan melakukan perintah 'add', 'commit', dan 'push'.Lalu di Heroku, saya membuat aplikasi baru dengan nama 'tugas2viena' dan menambahkan 'HEROKU_APP_NAME' yang isinya nama dari aplikasi yang saya buat di Heroku dan 'HEROKU_API_KEY' yang isinya API key dari akun saya pada 'secrets'.Setelah melakukan langkah-langkah di atas, saya melakukan *deploy* kembali dengan menekan 're-run all jobs' pada *repository* yang sesuai di Github.
 
 #### Dan aplikasi yang sudah saya buat bisa diakses melalui [tautan ini](https://tugas2viena.herokuapp.com/)
+#### terluka dan 'menangis'
 
