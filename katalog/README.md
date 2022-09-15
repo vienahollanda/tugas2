@@ -8,7 +8,7 @@
 
 ### 1. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara 'urls.py', 'views.py', 'models.py', dan berkas 'html';
 
-![diagram bagan request client](https://www.canva.com/design/DAFMQ6q5IBE/TxRymZveWKNpvWqfq1fNrw/edit?utm_content=DAFMQ6q5IBE&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
+![diagram bagan request client](https://www.canva.com/assets/images/User.png)
 
 #### Untuk membuat sebuah request, langkah awal yang dilakukan adalah *user* akan membuat request ke *Django server*, setelah *middleware classes* memproses request yang dibuat, request akan diteruskan ke URL Router di 'urls.py'. 
 #### Ketika sudah mendapatkan *matching URL* berdasarkan request, *view function* atau fungsi yang sesuai di 'views.py' yang bersesuaian akan dipanggil, dan jika fungsi ini sudah dieksekusi, waktunya untuk merespon request yang diberikan.
