@@ -1,0 +1,112 @@
+[
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 1,
+        "fields": {
+            "watched": true,
+            "title": "All Of Us Are Dead",
+            "rating": 4,
+            "release_date": "2022-01-28",
+            "review": "I don't understand why there are so many negative reviews for All of Us Are Dead. It was genuinely good and had some great techniques, and most importantly it stuck to the webtoon."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": true,
+            "title": "Stranger Things",
+            "rating": 9,
+            "release_date": "2016-07-15",
+            "review": "Such a good show. Amazing. You will fall in love with it. In 3, u can really see how the characters have matured. Do yourself a favour and watch this amazing show."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 3,
+        "fields": {
+            "watched": false,
+            "title": "Zombieland",
+            "rating": 3,
+            "release_date": "2009-10-02",
+            "review": "Zombieland is a lot of fun, with great acting, great effects and good comedy 8.3/10."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 4,
+        "fields": {
+            "watched": true,
+            "title": "Shark Attack",
+            "rating": 3,
+            "release_date": "1999-05-28",
+            "review": "i'm one of those people who doesn't mind bad cgi films and this movie is just fantastic!"
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 5,
+        "fields": {
+            "watched": false,
+            "title": "Annabelle",
+            "rating": 4,
+            "release_date": "2014-10-01",
+            "review": "Personally, I don't find this movie scary at all. It was generic, the storyline was predictable and overall forgettable. I'd like to point out few things that bothered me greatly. Spoilers. "
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 6,
+        "fields": {
+            "watched": false,
+            "title": "The Conjuring",
+            "rating": 4,
+            "release_date": "2013-10-26",
+            "review": "One of the best horror movies i have seen in recent years . James wan did a great job of creating a new horror universe."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 7,
+        "fields": {
+            "watched": true,
+            "title": "Kingsman",
+            "rating": 5,
+            "release_date": "2014-12-13",
+            "review": "Kingsman: The Secret Service is everything mild James Bond fans wish the James Bond series was."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 8,
+        "fields": {
+            "watched": false,
+            "title": "Fast and Furious",
+            "rating": 5,
+            "release_date": "2009-04-03",
+            "review": "They managed to change things up while still sticking to the OG aspects including fast cars, family, and working within a team."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 9,
+        "fields": {
+            "watched": true,
+            "title": "Danur",
+            "rating": 4,
+            "release_date": "2017-03-30",
+            "review": "Gue bukan pembenci jump scares, tapi masalahnya, kebanyakan film horor yang rilis beberapa tahun belakangan tampaknya begitu bergantung pada jump scares."
+        }
+    },
+    {
+        "model": "mywatchlist.mywatchlist",
+        "pk": 10,
+        "fields": {
+            "watched": false,
+            "title": "Baywatch",
+            "rating": 3,
+            "release_date": "2017-07-19",
+            "review": "Always team works matter cz team make you more stronger. Never stop on your limit do what make you satisfied and which is helpful for other."
+        }
+    }
+]
