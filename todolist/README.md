@@ -1,0 +1,30 @@
+# Tugas 4
+
+## Viena Hollanda Koswara
+## 2106751253
+## PBP A
+
+### 1. Apa kegunaan `{% csrf_token %}` pada elemen `<form>?` Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>?`
+#### CSRF adalah singkatan dari *Cross Site Request Forgery* yang merupakan sebuah serangan eksploitasi web yang membuat pengguna tanpa sadar mengirimkan suatu *request* ke website yang sedang digunakan saat itu, tapi seringkali pengguna tidak sadar bila serangan ini terjadi. CSRF Token dapat mencegah hal ini terjadi yang membuat pelaku tidak mungkin bisa melakukan permintaan HTTP yang secara sepenuhnya cocok untuk diumpankan ke pengguna karena `{% csrf_token %}` membuat sebuah nilai token pada server ketika melakukan *rendering* sebuah halaman dan memastikan untuk melakukan pengecekan kembali terhadap token ini ketika ada *request* yang dilakukan. Hal ini membuat pelaku tidak dapat memprediksi nilai dari token CSRF pengguna sehingga *request* dengan semua parameter yang diperlukan aplikasi untuk memenuhi *request* tersebut tidak dapat dibuat. Jika kita tidak menggunakan kode tersebut, maka akan muncul *error* ketika ingin melakukan *submit* pada `form` karena nilai CSRF Token pada `server` berbeda dengan yang dimiliki oleh `form`.
+ 
+### 2. Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan *generator* seperti `{{ form.as_table }})`? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
+#### Betul, kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan *generator* seperti `{{ form.as_table }})` dengan cara menggunakan tag dasar. Sebuah form dalam berkas HTML harus berada di dalam tag form, yang diawali dengan `<form>` dan diakhiri dengan `</form>`. Tag ini memiliki beberapa atribut, yaitu `action` dan `method`. `action` berfungsi untuk menjelaskan kemana data form akan dikirimkan, dan `method` berfungsi untuk menjelaskan bagaimana data isian dari form akan dikirim oleh *web browser*. Nilai dari `method` bisa berupa `get` atau `post`. jika kita mengisi atribut tersebut dengan `get`, maka isian form akan terlihat pada *url browser*, `post` biasanya digunakan untuk data yang lebih sensitif dan level privasi yang tinggi, seperti *password*.
+#### Adapun tag lainnya yang digunakan, yaitu `tag<input>`, `tag<textarea>`, dan `tag<select>`. Setiap tag input di dalam form harus ditambahkan atribut name yang menjadi *variable form* agar dapat diproses oleh *web server*.
+  
+### 3. Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
+#### User akan melakukan input data di form yang tertera di berkas create-task.html. Ketika `title` dan `description` sudah diisi pada form dan user memencet tombol `Tambah Task`, request dalam bentuk POST akan dikirimkan dan juga isi dari formnya. Jika isi data di form valid, maka akan diambil isi dari `title` dan `description`. Setelah itu, akan dibuat data baru buat dimasukkan ke database dengan input field-fieldnya merupakan sesuatu yang diisi oleh user, `description` dan `title` berdasarkan apa yang diisi di form oleh user, dan tanggalnya adalah tanggal ketika task itu pertama kali dibuat. Sesudah data ditambahkan ke dalam database, maka akan ditampilkan di berkas todolist.html, tapi task yang ditampilkan ini merupakan task yang dimiliki oleh seorang user yang sedang melakukan `log in`, bukan semua task dari semua user.
+  
+### 4.  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
+#### a. Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
+##### Untuk bagian registrasi, dilakukan import untuk `UserCreationForm` yang akan membuat user, fungsi `messages`untuk memberikan pesan, dan fungsi `redirect` untuk melakukan pengarahan ulang halaman. Kemudian, membuat fungsi `register` dalam views.py yang nantinya fungsi ini akan membuat formulir registrasi dan menghasilkan akun user yang baru selesai dibuat. Setelah itu, membuat berkas HTML di folder `templates` milik `todolist` dengan nama `register.html`. Lalu, melakukan routing di urls.py milik `todolist` sehingga ketika kita memasukkan link untuk mengakses aplikasi `todolist`, fungsi registrasi akan dipanggil yang akan menampilkan halaman registrasi.
+##### Untuk bagian login, dilakukan import authenticate untuk memproses username dan password ketika user melakukan login, dan juga import login untuk menjalankan proses login di views.py. Dan membuat fungsi dengan nama `login_user` untuk *handle* eksekusi yang akan dilakukan ketika user melakukan *log in*. Setelah itu, membuat berkas HTML dengan nama login.html pada folder templates milik todolist. Lalu, melakukan routing di urls.py milik todolist supaya ketika kita memasukkan link untuk mengakses aplikasi `todolist` akan memanggil fungsi login akan dipanggil yang akan menampilkan halaman login.
+##### Untuk bagian logout , dilakukan import fungsi logout dan membuat fungsi dengan nama `logout_user` di views.py. Dan tambahkan tombol `logout`ke dalam todolist.html. Lalu, melakukan routing di urls.py milik todolist supaya ketika kita memasukkan link untuk mengakses aplikasi `todolist` akan memanggil fungsi logout yang akan melakukan proses logout user dari akun yang dimilikinya.
+
+#### b. Membuat halaman utama todolist yang memuat username pengguna, tombol Tambah Task Baru, tombol logout, serta tabel berisi tanggal pembuatan task, judul task, dan deskripsi task.
+##### Di bagian ini, dibuat fungsi di dalam views.py yang akan melakukan render pada halaman utama. Di fungsi ini, dibuat variabel context yang akan melakukan passing data task yang berhubungan dengan user, username dari user, dan data dari tanggal terakhir user melakukan login. Lalu, membuat berkas todolist.html yang akan menampilkan field-field yang diinginkan.
+
+#### c. Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
+
+  
+### Akses menuju aplikasi `todolist` ada [di sini.](https://tugas2viena.herokuapp.com/todolist/login/)
+ 
