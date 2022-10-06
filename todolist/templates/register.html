@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block meta %}
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
 <title>Registrasi Akun</title>
 {% endblock meta %}
 
@@ -8,7 +10,7 @@
 
 <div class = "login">
 
-    <h1>Formulir Registrasi</h1>
+    <h1 class="p-3 mb-2 bg-white text-dark"> Formulir Registrasi</h1>
 
         <form method="POST" >
             {% csrf_token %}
@@ -30,5 +32,6 @@
     {% endif %}
 
 </div>
+</section>
 
 {% endblock content %}

@@ -1,34 +1,52 @@
 {% extends 'base.html' %}
 
 {% block meta %}
-<title>Login</title>
+<title xmlns="http://www.w3.org/1999/html">Login</title>
+
 {% endblock meta %}
 
 {% block content %}
 
+
 <div class = "login">
 
-    <h1>Login</h1>
+    <style>
+    form {
+        display: flex;
+        height: 80vh;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #E6E6FA, #4863A0)
+    }
+
+</style>
+
+    <h1 style="text-align:center">Login</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-4 col-sm-4 col-xs-12"></div>
+              <div class="col-md-4 col-sm-4 col-xs-12">
+                  <form class="form-container">
+  <div class="form-group">
+      <div class="align-self-center">
 
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <td><input type="text" name="username" placeholder="Enter your username" class="form-control"></td>
+    <div id="usernameHelp" class="form-text">A valid username (more than 3 characters).</div>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <td><input type="password" name="password" placeholder="Enter your password" class="form-control"></td>
+  </div>
+  <br>
+  <br>
+  <button type="submit" class="btn btn-primary" value="btn btn_login">Login</button>
+</form>
+              </div>
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
 
     {% if messages %}
         <ul>
@@ -38,8 +56,13 @@
         </ul>
     {% endif %}
 
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
-
+    <p class="text-center">Belum mempunyai akun?</p>
+            <a href="{% url 'todolist:register' %}" class="text-center">Buat Akun</a>
 </div>
+
+
+
+
+
 
 {% endblock content %}

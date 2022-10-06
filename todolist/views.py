@@ -75,3 +75,23 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('todolist:login'))
     response.delete_cookie('last_login')
     return response
+
+@login_required(login_url='/todolist/login/')
+def task_deleted(request, id):
+    if request.user.is_authenticated:
+        task = Task.objects.get(id=id)
+        task.delete()
+        return redirect('todolist:show_todolist')
+    else:
+        return redirect('todolist:login_user')
+
+
+@login_required(login_url='/todolist/login/')
+def task_completed(request, id):
+    if request.user.is_authenticated:
+        task = Task.objects.get(id=id)
+        task.is_finished = not task.is_finished
+        task.save()
+        return redirect('todolist:show_todolist')
+    else:
+        return redirect('todolist:login_user')
