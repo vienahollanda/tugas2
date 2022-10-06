@@ -28,3 +28,43 @@
   
 ### Akses menuju aplikasi `todolist` ada [di sini.](https://tugas2viena.herokuapp.com/todolist/login/)
  
+ 
+### Tugas 5
+
+#### 1. Apa perbedaan dari Inline, Internal, dan External CSS? Apa saja kelebihan dan kekurangan dari masing-masing style?
+##### Inline CSS adalah kode CSS yang ditulis langsung pada atribut elemen HTML. Setiap elemen HTML memiliki atribut style, di situ lah inline CSS ditulis.  Inline CSS digunakan hanya untuk mengubah satu elemen saja. Kekurangan: cara ini kurang efisien karena hanya bisa diterapkan pada satu elemen HTML sehingga kurang cocok untuk website dengan baris coding yang banyak. Kelebihan: memudahkan dalam perbaikan atribut HTML, membantu saat pengujian dan melihat perubahan pada satu elemen saja.
+
+##### Kode CSS akan ditulis di dalam tag <style> lokasinya berada pada bagian atas header file HTML. Internal CSS dapat digunakan untuk membuat tampilan pada satu halaman website dan tidak digunakan pada halaman website yang lain. Perubahan pada Internal CSS hanya berlaku pada satu halaman saja. Kekurangan: performa website menjadi lebih lambat karena setiap halaman memiliki CSS sendiri, kurang efisien jika ingin digunakan di beberapa halaman website yang sama karena kode harus dituliskan ulang di setiap halaman, dan ukuran file menjadi lebih besar karena setiap halaman memiliki CSS sendiri. Kelebihan: mudah dalam melakukan editing tiap halaman website, tidak perlu melakukan upload file CSS karena masuk dalam file HTML, dan mudah saat memperbaiki error pada CSS website.
+
+ ##### Eksternal CSS adalah kode CSS yang ditulis secara terpisah dengan kode HTML, kodenya ditulis di dalam file khusus yang berekstensi .css. Dan ada dua cara untuk menghubungkan file yang berisi kode CSS dengan HTML, yaitu dengan menggunakan <link> (biasa dituliskan pada bagian <head>, jadi setiap halaman website dilakukan pemanggilan file .css.) atau @import. File CSS dapat digunakan di beberapa halaman website sekaligus, jadi perubahan yang dilakukan akan terlihat tidak hanya di satu halaman saja. Kelebihan: ukuran file HTML menjadi lebih kecil, penulisan kode HTML menjadi lebih rapi, melakukan loading website menjadi lebih cepat, dan file CSS bisa digunakan untuk beberapa halaman website berbeda. Kekurangan: tidak cocok untuk halaman website yang membutuhkan halaman custom dan halaman website rawan berantakan saat file CSS gagal load dengan sempurna sehingga tampilan website juga berantakan.
+
+ #### 2. Jelaskan tag HTML5 yang kamu ketahui.
+ ##### <nav> untuk mendefinisikan navigasi pada halaman.
+ ##### <!DOCTYPE html> untuk mendeklarasikan tipe dari dokumen yang akan dibuat kepada browser.
+ ##### <figure> untuk mendefinisikan gambar yang ada pada artikel
+ ##### <canvas> Elemen ini memberi ruang gambar dalam JavaScript di halaman web. 
+ ##### <video> yang berfungsi untuk menambahkan video ke halaman web.
+ ##### <audio> yang berfungsi untuk menambahkan audio ke halaman web.
+ 
+ #### 3. Jelaskan tipe-tipe CSS selector yang kamu ketahui.
+ ##### Type Selector - Selektor ini akan memilih elemen berdasarkan nama tag.
+ ##### Class Selector - Selektor class adalah selektor yang memilih elemen berdasarkan nama class yang diberikan. Selektor class dibuat dengan tanda titik        di depannya pada file CSS.
+ ##### ID Selector - Selektor ID penerapannya hampir sama dengan Class Selector. Bedanya, ID bersifat unik karena hanya boleh digunakan oleh satu elemen          saja. Selektor ID ditandai dengan tanda pagar (#) di depannya saat menulikannya di kode CSS.
+ ##### Attribute Selector - Selektor atribut adalah selektor yang memilik elemen berdasarkan atribut. Selektor ini hampir sama seperti selektor Tag.
+ ##### Universal Selectors - Selektor ini digunakan untuk memilih setiap single element dari tipe element apapun. Artinya, penyeleksian berlaku secara      keseluruhan untuk semua single element. Penggunaan Universal Selector pada kode CSS ditandai dengan karakter arterisk (*) yang dapat digunakan secara berdiri sendiri ataupun digabungkan dengan tipe selektor lainnya, tergantung kebutuhan.
+
+ #### 4. Kustomisasi templat (login, register, create-task)
+ ##### Langkah pertama, saya menambahkan 2 barisan kode pada aplikasi todolist supaya komponen - komponen pada Bootstrap bisa digunakan untuk mengubah tampilan halaman web. Kodenya adalah:
+##### a. `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">`
+ 
+ ##### b. `<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>`
+ ##### Setelah itu, saya memakai komponen-komponen yang ada pada Bootsrap untuk memperindah tampilan halaman website saya, seperti *button*, *margin* dan *padding*, dan *cards*, dan komponen yang lainnya.
+ 
+ #### 5. Kustomisasi halaman utama todo list menggunakan cards. (Satu card mengandung satu task).
+ 
+ #### 4. Membuat keempat halaman yang dikustomisasi menjadi *responsive*.
+ ##### Menambahkan responsive viewport meta tag di bagian <head> pada berkas base.html. Kodenya adalah: `<meta name="viewport" content="width=device-width, initial-scale=1.0">.` Setelah itu membuat *media query* pada `file .css` untuk mengubah *stylesheet* berdasarkan lebar dan tinggi yang ditentukan, hal ini berguna jika kita ingin membuat *layout* halaman web kita *responsive* dengan menyesuaikan tampilannya berdasarkan ukuran layar perangkat yang digunakan.
+ 
+
+
+
