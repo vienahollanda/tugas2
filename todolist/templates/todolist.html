@@ -1,44 +1,127 @@
 {% extends 'base.html' %}
 
- {% block content %}
+{% block content %}
+<script type="text/javascript">
 
-  <h1 class="font-monospace"> Todolist</h1>
+function resetForm() {
+        document.getElementById("formAddTask").reset();
+    }
 
-
-  <h5> Username: </h5>
-  <p>{{username}}</p>
-
-<section class="vh-100 bg-image"
-  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
-
-
-    <tr>
-
-    </tr>
-    {% comment %} Add the data below this line {% endcomment %}
-      {% for task in list_tasks %}
-    <tr>
-    </tr>
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">w
-  <div class="card-header">To do was made on: {{task.date}}</div>
-  <div class="card-body">
-    <h5 class="card-title">{{task.title}}</h5>
-    <p class="card-text">{{task.description}}</p>
-      <button class="btn btn-success" style="text-align: center;"><a
-                                    style="color:white"
+function show_task_json() {
+    $("#c").empty();
+    $.ajax({
+        url: './json/',
+        dataType: 'json',
+        success: function (task) {
+            for (var i = 0; i < task.length; i++) {
+                var date = new Date(task[i].fields.date);
+                var row = `<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">w
+                                <div class="card-header">To do was made on: ${task[i].fields.date}</div>
+                                <div class="card-body">
+                                    <h5 class="card-title">${task[i].fields.title}</h5>
+                                    <p class="card-text">${task[i].fields.description}</p>
+                                    <button class="btn btn-success" style="text-align: center;"><a
+                                            style="color:white"
                                     >done</a></button>
 
-        <button class="btn btn-danger" style="text-align: center;"><a
-                style="color:white"
-                >delete</a></button>
-  </div>
-</div>
-</div>
-{% endfor %}
+                                    <button class="btn btn-danger" style="text-align: center;"><a
+                                            style="color:white"
+                                    >delete</a></button>
+
+                                </div>
+                            </div>`;
+                $('#c').append(row);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            alert('Error: ' + textStatus + ' - ' + errorThrown);
+        }
+    });
+}
+
+function addTask() {
+
+        $.ajax({
+            type: 'POST',
+            url: './add/',
+            data: {
+                title: $("#id_title").val(),
+                description: $("#id_description").val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },success: function() {
+                show_task_json();
+                resetForm();
+            },
+            error : function(xhr,errmsg,err) {
+                console.log(xhr.status + ": " + xhr.responseText);
+        }
+        })
+    }
+
+    $(document).ready(function () {
+        show_task_json();
+    })
 
 
-<h5>Sesi terakhir login: {{ last_login }}</h5>
+
+</script>
+<h1 class="font-monospace"> Todolist</h1>
+
+<h5> Username: </h5>
+<p>{{username}}</p>
+
+
+<section class="vh-100 bg-image"
+         style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+
+
+    <tr>
+
+    </tr>
+    <div class="container-fluid" id="c">
+        {% comment %} Add the data below this line {% endcomment %}
+
+
+    </div>
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 <button><a href="{% url 'todolist:logout' %}">Logout</a></button>
-<button><a href="{% url 'todolist:tambah_task' %}">Tambah Task</a></button>
+<button data-bs-target="#exampleModal"
+        data-bs-toggle="modal"> Tambah Task
+</button>
+</section>
 
- {% endblock content %}
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Task</h1>
+                <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" onclick="resetForm();"
+                        type="button"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    {% csrf_token %}
+                    <table>
+                        {{ form.as_table }}
+                        <tr>
+                            <td></td>
+                            <td><input name="submit" type="submit" value="Tambah"/></td>
+                        </tr>
+                    </table>
+                </form>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetForm();"
+                            type="button">Close
+                    </button>
+                    <input class="btn btn-primary" data-bs-dismiss="modal" id="addButton" name="submit"
+                           onclick="addTask();"
+                           type="submit" value="Tambah">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

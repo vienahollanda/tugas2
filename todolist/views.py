@@ -7,22 +7,29 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth import logout
 from todolist.models import Task
 import datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.urls import reverse
 from todolist.form import TaskForms
 import datetime
+from django.core import serializers
 # Create your views here.
 
 @login_required(login_url='/todolist/login/')
 def show_tasks(request):
     user_logged_in = request.user
     data_tasks = Task.objects.filter(user=user_logged_in)
+    form = TaskForms()
     context = {
         'list_tasks': data_tasks,
         'username': user_logged_in.get_username(),
         'last_login': request.COOKIES['last_login'],
+        'form': form,
     }
     return render(request, "todolist.html", context)
+
+def show_task_json(request):
+    data_tasks = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize("json", data_tasks), content_type="application/json")
 
 @login_required(login_url='/todolist/login/')
 def tambah_task(request):
@@ -40,6 +47,35 @@ def tambah_task(request):
         form = TaskForms()
     return render(request, 'create-task.html', {'form': form})
 
+
+@login_required(login_url='/todolist/login/')
+def add_task_ajax(request):
+    # mengecek apakah user sudah log in
+    if request.user.is_authenticated:
+        # Ambil form-nya dari http request
+        form = TaskForms(request.POST)
+        response_data = {}
+
+        # Handle jika form valid dan method request adl. POST
+        if request.method == 'POST' and form.is_valid():
+            # Ambil title & description dari form, buat task baru, lalu redirect
+            # ke halaman utama
+            title = form.cleaned_data['title']
+            description = form.cleaned_data['description']
+            new_task = Task.objects.create(title=title, description=description,
+                                                user=request.user, date=datetime.date.today())
+            response_data['title'] = title
+            response_data['description'] = description
+            response_data['date'] = datetime.date.today()
+            return JsonResponse(response_data);
+
+        # melakukan render pada halaman add task
+        context = {
+            'form': form,
+        }
+        return render(request, 'create-task.html', context)
+    else:
+        return redirect('todolist:login')
 
 def register(request):
     form = UserCreationForm()
