@@ -24,12 +24,18 @@
 ##### Pertama, saya menuliskan kode ini dalam `todolist.html` untuk membuat *button* Tambah Task yang akan membuka sebuah modal add-task jika ditekan:
 ##### `<button data-bs-target="#exampleModal"`
 #####        `data-bs-toggle="modal"> Tambah Task`
-##### membuat fungsi `add_task_ajax` untuk melakukan penambahan task ke dalam *database*. Dan saya juga memasukkan *path url* dari fungsi ini ke `urls.py` milik `todolist` agar ketika aplikasi diakses, fungsi ini bisa dipanggil. Sebelumnya, saya telah melakukan *import* untuk fungsi ini agar tidak terjadi *error*. Di dalam berkas `todolist.html`fungsi `add_task_ajax` telah saya hubungkan ketika membuat *button* Tambah Task dalam bagian kode dari modal add-task. Dengan kode berikut: `<button class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetForm();"
+##### membuat fungsi `add_task_ajax` untuk melakukan penambahan task ke dalam *database*. Dan saya juga memasukkan *path url* dari fungsi ini ke `urls.py` milik `todolist` agar ketika aplikasi diakses, fungsi ini bisa dipanggil. Sebelumnya, saya telah melakukan *import* untuk fungsi ini agar tidak terjadi *error*. Di dalam berkas `todolist.html`fungsi `add_task_ajax` telah saya hubungkan ketika membuat *button* Tambah Task dalam bagian kode dari modal add-task. Dengan kode berikut: `<button class="btn btn-secondary" data-bs-dismiss="modal" onclick="resetForm();"`
 #####                            `type="button">Close`
 #####                    `</button>`
 #####                    `<input class="btn btn-primary" data-bs-dismiss="modal" id="addButton" name="submit"`
 #####                           `onclick="addTask();"`
 #####                           `type="submit" value="Tambah">`
 ##### Dan setelah itu, menutup modal dengan `</div>` karena untuk membuka modal kita menggunakan `<div class="modal-footer">`. 
+##### Setelah menambahkan semua fungsi AJAX yang dibutuhkan, saya menambahkan fungsi:
+##### `$(document).ready(function () {`
+#####        `show_task_json();`
+#####    `})`
+##### Fungsi ini berguna untuk menjalankan fungsi yang dipanggil jika Document Object Model (DOM) sudah siap untuk mengeksekusi kode javascript.
+##### Lalu saya melakukan git add, git commit, dan git push agar perubahan yang saya lakukan tersimpan.
 
 #### [Link](https://tugas2viena.herokuapp.com/todolist/login/) ke aplikasi todolist.
